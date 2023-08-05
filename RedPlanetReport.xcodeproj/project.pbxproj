@@ -11,6 +11,9 @@
 		0ED9CA2B2A7E707900E9E322 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9CA2A2A7E707900E9E322 /* ContentView.swift */; };
 		0ED9CA2D2A7E707A00E9E322 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED9CA2C2A7E707A00E9E322 /* Assets.xcassets */; };
 		0ED9CA302A7E707A00E9E322 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED9CA2F2A7E707A00E9E322 /* Preview Assets.xcassets */; };
+		0ED9CA382A7E71D600E9E322 /* MarsWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9CA372A7E71D600E9E322 /* MarsWeatherService.swift */; };
+		0ED9CA3F2A7E760600E9E322 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9CA3E2A7E760600E9E322 /* Forecast.swift */; };
+		0ED9CA442A7E7E5200E9E322 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9CA432A7E7E5200E9E322 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		0ED9CA2A2A7E707900E9E322 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0ED9CA2C2A7E707A00E9E322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ED9CA2F2A7E707A00E9E322 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0ED9CA372A7E71D600E9E322 /* MarsWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsWeatherService.swift; sourceTree = "<group>"; };
+		0ED9CA3E2A7E760600E9E322 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		0ED9CA432A7E7E5200E9E322 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,10 @@
 			children = (
 				0ED9CA282A7E707900E9E322 /* RedPlanetReportApp.swift */,
 				0ED9CA2A2A7E707900E9E322 /* ContentView.swift */,
+				0ED9CA422A7E7E1C00E9E322 /* ViewModels */,
+				0ED9CA412A7E7AFB00E9E322 /* Views */,
+				0ED9CA392A7E721C00E9E322 /* Models */,
+				0ED9CA362A7E71B600E9E322 /* Service */,
 				0ED9CA2C2A7E707A00E9E322 /* Assets.xcassets */,
 				0ED9CA2E2A7E707A00E9E322 /* Preview Content */,
 			);
@@ -65,6 +75,37 @@
 				0ED9CA2F2A7E707A00E9E322 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0ED9CA362A7E71B600E9E322 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0ED9CA372A7E71D600E9E322 /* MarsWeatherService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0ED9CA392A7E721C00E9E322 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0ED9CA3E2A7E760600E9E322 /* Forecast.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0ED9CA412A7E7AFB00E9E322 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0ED9CA422A7E7E1C00E9E322 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0ED9CA432A7E7E5200E9E322 /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ED9CA3F2A7E760600E9E322 /* Forecast.swift in Sources */,
+				0ED9CA382A7E71D600E9E322 /* MarsWeatherService.swift in Sources */,
 				0ED9CA2B2A7E707900E9E322 /* ContentView.swift in Sources */,
 				0ED9CA292A7E707900E9E322 /* RedPlanetReportApp.swift in Sources */,
+				0ED9CA442A7E7E5200E9E322 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
