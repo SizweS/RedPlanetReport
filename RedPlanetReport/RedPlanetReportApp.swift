@@ -11,7 +11,9 @@ import SwiftUI
 struct RedPlanetReportApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let weatherService = MarsWeatherService()
+            let viewModel = ContentViewModel(marsWeatherService: weatherService)
+            ContentView(viewModel: viewModel)
         }
     }
 }
