@@ -11,9 +11,9 @@ import SwiftUI
 struct RedPlanetReportApp: App {
     var body: some Scene {
         WindowGroup {
-            let weatherService = MarsWeatherService()
-            let viewModel = ContentViewModel(marsWeatherService: weatherService)
+            let viewModel = ContentViewModel()
             ContentView(viewModel: viewModel)
+                .foregroundColor(Color(UIColor(red: 69/255, green: 24/255, blue: 4/255, alpha: 1.0)))
         }
     }
 }
