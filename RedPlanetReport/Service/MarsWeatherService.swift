@@ -7,20 +7,6 @@
 
 import Foundation
 
-// Data model depicting weather details on a particular day
-struct WeatherDataModel: Decodable {
-    let date: String
-    let temp: Double
-    let humidity: Int
-    let windSpeed: Int
-    let safe: Bool
-}
-
-//data model depicting the forcaste data reponse recived from NASA MARS API
-struct ForecastDataModel: Decodable {
-    let forecasts: [WeatherDataModel]
-}
-
 public final class MarsWeatherService: NSObject {
     
     private var completionHandler: ((Forecast) -> Void)?

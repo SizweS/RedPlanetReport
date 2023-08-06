@@ -5,31 +5,49 @@
 //  Created by Sizwe Maluleke on 2023/08/05.
 //
 
-import Foundation
-
+import SwiftUI
+import Combine
 
 public class ContentViewModel: ObservableObject {
-    @Published var safe: String = "Unsafe"
-    @Published var date: String = "--"
-    @Published var temperature: String = "--"
-    @Published var humidity: String = "--"
-    @Published var windSpeed: String = "--"
+    @Published var currentWeather: WeatherDataModel?
+    @Published var forecast: [WeatherDataModel]?
+    @Published var lastUpdated: String?
+    @Published var weatherStation: String?
     
-    public let marsWeatherService: MarsWeatherService
+    private var cancellables = Set<AnyCancellable>()
     
-    public init(marsWeatherService: MarsWeatherService) {
-        self.marsWeatherService = marsWeatherService
+    public init() {
+        observeWeatherData()
     }
     
-    public func refresh() {
-        marsWeatherService.loadWeatherData { weather in
-            DispatchQueue.main.async {
-                self.safe = weather.marsForcasts.forecasts[0].safe ? "SAFE" : "NOT SAFE"
-                self.date = weather.marsForcasts.forecasts[0].date
-                self.temperature = "\(weather.marsForcasts.forecasts[0].temp) °C"
-                self.humidity = "\(weather.marsForcasts.forecasts[0].humidity) %"
-                self.windSpeed = "\(weather.marsForcasts.forecasts[0].humidity) km/h"
+    private func observeWeatherData() {
+        MarsWeatherManager.shared.$forecasts
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] forecasts in
+                self?.forecast = forecasts
+                self?.currentWeather = forecasts.first
             }
-        }
+            .store(in: &cancellables)
+        
+        MarsWeatherManager.shared.$lastUpdated
+             .assign(to: \.lastUpdated, on: self)
+             .store(in: &cancellables)
+         
+         MarsWeatherManager.shared.$weatherStation
+             .assign(to: \.weatherStation, on: self)
+             .store(in: &cancellables)
+    }
+    
+    // Add a method to refresh the data when needed
+    public func refreshWeatherData() {
+        MarsWeatherManager.shared.fetchWeatherData()
     }
 }
+
+
+
+
+
+
+
+
